@@ -38,6 +38,7 @@
             this.saleCodeTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
+            this.saleCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,8 @@
             this.ItemName,
             this.price,
             this.quantity,
-            this.totalPrice});
+            this.totalPrice,
+            this.saleCode});
             this.dataGridView1.Location = new System.Drawing.Point(15, 64);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1064, 150);
@@ -116,6 +118,11 @@
             this.updateBtn.UseVisualStyleBackColor = true;
             this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
+            // saleCode
+            // 
+            this.saleCode.HeaderText = "Sale Code";
+            this.saleCode.Name = "saleCode";
+            // 
             // ReturnSaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,6 +135,7 @@
             this.Controls.Add(this.label2);
             this.Name = "ReturnSaleForm";
             this.Text = "ReturnSaleForm";
+            this.Load += new System.EventHandler(this.ReturnSaleForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -146,5 +154,6 @@
         private System.Windows.Forms.TextBox saleCodeTextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saleCode;
     }
 }

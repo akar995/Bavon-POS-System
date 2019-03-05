@@ -36,6 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.barcodeTextBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.successLabel = new System.Windows.Forms.Label();
             this.saleButton = new System.Windows.Forms.Button();
             this.changeLabel = new System.Windows.Forms.Label();
@@ -54,7 +55,7 @@
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cashBoxBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -76,6 +77,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel2.Controls.Add(this.cashBoxBtn);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.barcodeTextBox);
             this.panel2.Location = new System.Drawing.Point(67, 10);
@@ -122,6 +124,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 620);
             this.panel3.TabIndex = 2;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(68, 433);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "return";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // successLabel
             // 
@@ -275,15 +287,15 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // button2
+            // cashBoxBtn
             // 
-            this.button2.Location = new System.Drawing.Point(68, 433);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "return";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.cashBoxBtn.Location = new System.Drawing.Point(722, 25);
+            this.cashBoxBtn.Name = "cashBoxBtn";
+            this.cashBoxBtn.Size = new System.Drawing.Size(75, 23);
+            this.cashBoxBtn.TabIndex = 2;
+            this.cashBoxBtn.Text = "CASH BOX";
+            this.cashBoxBtn.UseVisualStyleBackColor = true;
+            this.cashBoxBtn.Click += new System.EventHandler(this.cashBoxBtn_Click);
             // 
             // POSForm
             // 
@@ -332,6 +344,7 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button cashBoxBtn;
     }
 }
 

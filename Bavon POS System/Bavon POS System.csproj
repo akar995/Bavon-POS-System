@@ -51,7 +51,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Bavon_POSDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="cashBoxInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cashBoxInputBox.Designer.cs">
+      <DependentUpon>cashBoxInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cashDatabaseConst.cs" />
     <Compile Include="ConstValues.cs" />
+    <Compile Include="DailySale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DailySale.Designer.cs">
+      <DependentUpon>DailySale.cs</DependentUpon>
+    </Compile>
     <Compile Include="dataEnter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +86,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicValues.cs" />
     <Compile Include="ReturnSaleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +98,12 @@
     </Compile>
     <Compile Include="SaleDatabaseConst.cs" />
     <Compile Include="UserDatabaseConst.cs" />
+    <EmbeddedResource Include="cashBoxInputBox.resx">
+      <DependentUpon>cashBoxInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DailySale.resx">
+      <DependentUpon>DailySale.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dataEnter.resx">
       <DependentUpon>dataEnter.cs</DependentUpon>
     </EmbeddedResource>

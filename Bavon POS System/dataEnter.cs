@@ -239,8 +239,15 @@ namespace Bavon_POS_System
         {
             string purshasePrice = purchasePriceTextBox.Text.ToString();
             string percentage = percentageTextBox.Text.ToString();
-            double extraPrice = (Double.Parse(percentage) / 100.0) * Double.Parse(purshasePrice);
-           string salePrice = (Double.Parse(purshasePrice) + extraPrice) + "";
+            double extraPrice = 0.0;
+            string salePrice = "";
+            try
+            {
+                 extraPrice = (Double.Parse(percentage) / 100.0) * Double.Parse(purshasePrice);
+               salePrice= (Double.Parse(purshasePrice) + extraPrice) + "";
+
+            }
+            catch { };
             salePriceLabel.Text = salePrice;
         }
     }

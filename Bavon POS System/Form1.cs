@@ -66,10 +66,10 @@ namespace Bavon_POS_System
 
         private void OnDataChangeGridView(object sender, EventArgs e)
         {
-            int TotalPrice = 0;
+            double TotalPrice = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                TotalPrice += int.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
+                TotalPrice += Double.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
             }
             TotalMoneyLabel.Text = TotalPrice.ToString();
         }
@@ -86,10 +86,10 @@ namespace Bavon_POS_System
         {
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                int qn = int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
-                int price = int.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString());
+                double qn = double.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
+                double price = double.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString());
 
-                int totalPrice = qn * price;
+                double totalPrice = qn * price;
                 dataGridView1.Rows[i].Cells[4].Value = totalPrice;
                 dataGridView1.Rows[i].Cells[2].Value = qn;
 
@@ -99,15 +99,15 @@ namespace Bavon_POS_System
         public void changeTotalLabelValue()
         {
 
-            int TotalPrice = 0;
+            double TotalPrice = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 try
                 {
-                    TotalPrice += int.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
+                    TotalPrice += double.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
 
                 }
-                catch (Exception eee) { }
+                catch (Exception) { }
             }
             TotalMoneyLabel.Text = TotalPrice.ToString();
         }
@@ -134,8 +134,8 @@ namespace Bavon_POS_System
         {
             try
             {
-                int reciveMoney = int.Parse(reciveMoneyTextBox.Text.ToString());
-                int TotalMoney = int.Parse(TotalMoneyLabel.Text.ToString());
+                double reciveMoney = Double.Parse(reciveMoneyTextBox.Text.ToString());
+                double TotalMoney = Double.Parse(TotalMoneyLabel.Text.ToString());
                 if (reciveMoney >= TotalMoney)
                 {
                     changeLabel.Text = (reciveMoney - TotalMoney).ToString();
@@ -177,16 +177,15 @@ namespace Bavon_POS_System
                     string saleCode = time.TotalMilliseconds.ToString();
                     string saleDate = DateTime.Now.ToString();
 
-                    int finalQunatity = int.Parse(tableQunatity) - int.Parse(quantity);
+                    double finalQunatity = Double.Parse(tableQunatity) - Double.Parse(quantity);
                     //username
-                    string username = "botan";
                     printRe += $"{name}   {quantity}   {totalPrice}\n";
                     con.Open();
                     string updateStatment = $"UPDATE {ItemDatabaseConst.TABLE_NAME}  SET {ItemDatabaseConst.QUANTITY} = {finalQunatity}";
                     SqlCommand cmd = new SqlCommand(updateStatment, con);
                     cmd.ExecuteNonQuery();
 
-                    string insertdata = $"insert into {SaleDatabaseConst.TABLE_NAME} ({SaleDatabaseConst.BARCODE},{SaleDatabaseConst.SALECODE},{SaleDatabaseConst.NAME},{SaleDatabaseConst.SALEPRICE},{SaleDatabaseConst.QUANTITY},{SaleDatabaseConst.TOTALSALEPRICE},{SaleDatabaseConst.USERNAME},{SaleDatabaseConst.DATE}) values('{barcode}', '{saleCode}', '{name}','{price}', '{quantity}', '{totalPrice}', '{username}', '{saleDate}'); ";
+                    string insertdata = $"insert into {SaleDatabaseConst.TABLE_NAME} ({SaleDatabaseConst.BARCODE},{SaleDatabaseConst.SALECODE},{SaleDatabaseConst.NAME},{SaleDatabaseConst.SALEPRICE},{SaleDatabaseConst.QUANTITY},{SaleDatabaseConst.TOTALSALEPRICE},{SaleDatabaseConst.USERNAME},{SaleDatabaseConst.DATE}) values('{barcode}', '{saleCode}', '{name}','{price}', '{quantity}', '{totalPrice}', '{PublicValues.USERNAME}', '{saleDate}'); ";
 
                     cmd.CommandText = insertdata;
                     cmd.ExecuteNonQuery();
@@ -270,10 +269,10 @@ namespace Bavon_POS_System
                         datag = Regex.Replace(datag, @"\t|\n|\r| ", "");
                         if (t.Equals(datag))
                         {
-                            int qn = int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
-                            int price = int.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString());
+                            double qn = Double.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
+                            double price = Double.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString());
                             qn++;
-                            int totalPrice = qn * price;
+                            Double totalPrice = qn * price;
                             dataGridView1.Rows[i].Cells[4].Value = totalPrice;
                             dataGridView1.Rows[i].Cells[2].Value = qn;
                             barcodeTextBox.Clear();
@@ -300,6 +299,12 @@ namespace Bavon_POS_System
         private void button2_Click(object sender, EventArgs e)
         {
             ReturnSaleForm sale = new ReturnSaleForm();
+            sale.Show();
+        }
+
+        private void cashBoxBtn_Click(object sender, EventArgs e)
+        {
+            DailySale sale = new DailySale();
             sale.Show();
         }
     }

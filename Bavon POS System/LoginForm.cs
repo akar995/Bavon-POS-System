@@ -35,6 +35,7 @@ namespace Bavon_POS_System
                         string username = (string)reader[$"{UserDatabaseConst.USERNAME}"];
                         string pass = (string)reader[$"{UserDatabaseConst.PASSWORD}"];
                         string role = (string)reader[$"{UserDatabaseConst.Role}"];
+                        PublicValues.USERNAME = username;
 
                         if (role.Equals(UserDatabaseConst.CASHIER_ROLE))
                         {
